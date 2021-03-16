@@ -260,7 +260,7 @@ def get_double_tsek_vol_by_pages(path, start, end, engine):
 
 # Cell
 def main():
-    for i, img_group_path in enumerate(sorted(config.ocr_output_path), 1):
+    for i, img_group_path in enumerate(sorted(config.ocr_output_path.iterdir()), 1):
         extract_double_tsek_vol(f"v{i:03}", img_group_path)
 
 # Cell
