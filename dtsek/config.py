@@ -36,8 +36,8 @@ class KangyurConfig(BaseConfig):
         self.ocr_output_path = self.ocr_path / " output" / self.work_id
         self.pedurma_output_path = self.output_path / self.name / "pedurma"
         self.dergey_output_path = self.output_path / self.name / "dergey"
-        self.pedurma_output_path.mkdir(exits_ok=True, parents=True)
-        self.dergey_output_path.mkdir(exits_ok=True, parents=True)
+        self.pedurma_output_path.mkdir(exist_ok=True, parents=True)
+        self.dergey_output_path.mkdir(exist_ok=True, parents=True)
 
 
 class TengyurConfig(BaseConfig):
@@ -51,5 +51,5 @@ class TengyurConfig(BaseConfig):
         self.ocr_output_path = self.ocr_path / "output" / self.work_id
         self.pedurma_output_path = self.output_path / self.name / "pedurma"
         self.dergey_output_path = self.output_path / self.name / "dergey"
-        self.pedurma_output_path.mkdir(exits_ok=True, parents=True)
-        self.dergey_output_path.mkdir(exits_ok=True, parents=True)
+        self.pedurma_output_path.mkdir(exist_ok=True, parents=True)
+        self.dergey_output_path.mkdir(exist_ok=True, parents=True)
