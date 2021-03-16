@@ -4,7 +4,6 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"get_templates": "01_extract_dtsek_from_image.ipynb",
          "mtm": "01_extract_dtsek_from_image.ipynb",
-         "templates": "01_extract_dtsek_from_image.ipynb",
          "get_ocr_output": "01_extract_dtsek_from_image.ipynb",
          "get_symbol": "01_extract_dtsek_from_image.ipynb",
          "get_full_text_annotations": "01_extract_dtsek_from_image.ipynb",
