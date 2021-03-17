@@ -263,8 +263,7 @@ def get_double_tsek_vol_by_pages(path, start, end, engine):
 # Cell
 def main():
     for i, img_group_path in enumerate(sorted(config.images_path.iterdir()), 1):
-        print(img_group_path)
-#         extract_double_tsek_vol(f"v{i:03}", img_group_path)
+        extract_double_tsek_vol(f"v{i:03}", img_group_path)
 
 # Cell
 if __name__ == "__main__":
