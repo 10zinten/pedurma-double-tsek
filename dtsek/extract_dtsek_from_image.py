@@ -57,6 +57,8 @@ def get_ocr_output(path):
     return json.load(gzip.open(str(res_fn), 'rb'))
 
 def get_symbol(response):
+    if 'fullTextAnnotation' not in response:
+        return None, None
     for page in response['fullTextAnnotation']['pages']:
         for block in page['blocks']:
             for paragraph in block['paragraphs']:
@@ -70,6 +72,8 @@ def get_symbol(response):
 def get_full_text_annotations(response):
     boxes, text = [], ''
     for char, box in get_symbol(response):
+        if not char and not box:
+            break
         text += char
         boxes.append(box)
     return boxes, text
@@ -151,7 +155,7 @@ def get_double_tsek_idx(image_path, templates, deskew=False, show_boxes=False):
     # Get ocr boxes
     response = get_ocr_output(image_path)
     boxes, text = get_full_text_annotations(response)
-    if not matches: return [], text
+    if not matches or not boxes: return [], text
     boxes = resize_boxes(boxes, old_size)
 
     # find double tsek char index
