@@ -138,6 +138,7 @@ def compute_iou(box_arr1, box_arr2):
 
 def get_double_tsek_idx(image_path, templates, deskew=False, show_boxes=False):
     # load, deskew and resize the image
+    if config.debug: print(image_path)
     image = cv2.imread(str(image_path))
     old_size = image.shape
     if deskew: image = image_deskew(image)
