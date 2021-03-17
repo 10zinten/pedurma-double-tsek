@@ -218,7 +218,8 @@ def extract_double_tsek_vol(vol_id, image_group_path):
         ann_text = ann_text_fn.read_text()
     ann_text_pages = []
     for i, path in enumerate(sorted((image_group_path).iterdir()), 1):
-        print(f'[INFO] {i+1} - Processing {path.name} ...')
+        print(f'[INFO] {i+1} - Processing {path.stem} ...')
+
         idxs, text = get_double_tsek_idx(path, templates)
         ann_text_pages.append(
             postprocess(
@@ -261,8 +262,9 @@ def get_double_tsek_vol_by_pages(path, start, end, engine):
 
 # Cell
 def main():
-    for i, img_group_path in enumerate(sorted(config.ocr_output_path.iterdir()), 1):
-        extract_double_tsek_vol(f"v{i:03}", img_group_path)
+    for i, img_group_path in enumerate(sorted(config.images_path.iterdir()), 1):
+        print(img_group_path)
+#         extract_double_tsek_vol(f"v{i:03}", img_group_path)
 
 # Cell
 if __name__ == "__main__":
