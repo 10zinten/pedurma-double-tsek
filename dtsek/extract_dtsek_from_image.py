@@ -147,7 +147,7 @@ def get_double_tsek_idx(image_path, templates, deskew=False, show_boxes=False):
     image = cv2.imread(str(image_path))
     old_size = image.shape
     if deskew: image = image_deskew(image)
-    image = image = cv2.resize(image, (config.img_size[1], config.img_size[0]))
+    image = cv2.resize(image, (config.img_size[1], config.img_size[0]))
 
     # find the double tsek boxes
     matches = mtm(image, templates)
@@ -220,7 +220,7 @@ def add_double_tsek(text, idxs):
 def extract_double_tsek_vol(vol_id, image_group_path):
     ann_text_fn = config.pedurma_output_path/f'{vol_id}.txt'
     if ann_text_fn.is_file():
-        ann_text = ann_text_fn.read_text()
+        return
     ann_text_pages = []
     for i, path in enumerate(sorted((image_group_path).iterdir()), 1):
         print(f'[INFO] {i+1} - Processing {path.stem} ...')
