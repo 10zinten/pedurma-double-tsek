@@ -231,6 +231,8 @@ def extract_double_tsek_vol(vol_id, image_group_path):
                 add_double_tsek(text, idxs)
             )
         )
+        if config.debug and idxs:
+            print(text)
 
     ann_text = "\n\n\n".join(ann_text_pages)
     ann_text_fn.write_text(
