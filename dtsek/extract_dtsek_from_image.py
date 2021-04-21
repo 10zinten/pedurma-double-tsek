@@ -229,7 +229,7 @@ def extract_double_tsek_vol(vol_id, image_group_path):
         dt_vol_output_dir = config.pedurma_output_path/image_group_path.name
         dt_vol_output_dir.mkdir(parents=True, exist_ok=True)
         dt_page_output_fn = dt_vol_output_dir / f"{path.stem}.txt"
-        if page_output_fn.is_file():
+        if dt_page_output_fn.is_file():
             continue
 
         idxs, text = get_double_tsek_idx(path, templates)
