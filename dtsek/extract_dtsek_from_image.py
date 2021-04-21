@@ -225,22 +225,20 @@ def extract_double_tsek_vol(vol_id, image_group_path):
     for i, path in enumerate(sorted((image_group_path).iterdir()), 1):
         print(f'[INFO] {i+1} - Processing {path.stem} ...')
 
-        idxs, text = get_double_tsek_idx(path, templates)
-        ann_text_pages.append(
-            postprocess(
-                add_double_tsek(text, idxs)
-            )
-        )
-        if config.debug and idxs:
-            print(text)
+        # cache page dtsek output
+        dt_vol_output_dir = config.pedurma_output_path/image_group_path.name
+        dt_vol_dir.mkdir(parents=True, exist_ok=True)
+        dt_page_output_fn = dt_vol_output_dir / f"{path.stem}.txt"
+        if page_output_fn.is_file():
+            continue
 
-    ann_text = "\n\n\n".join(ann_text_pages)
-    ann_text_fn.write_text(
-        ann_text.replace(
-            config.double_tsek_sym, config.expected_double_tsek_sym
-        )
-    )
-    print(f"[INFO] {vol_id} dtseks saved at {ann_text_fn}")
+        idxs, text = get_double_tsek_idx(path, templates)
+        dt_page_output = postprocess(add_double_tsek(text, idxs))
+        dt_page_output_fn.write_text(
+            dt_page_output.replace(
+                    config.double_tsek_sym, config.expected_double_tsek_sym
+                )
+            )
 
 # Cell
 def get_double_tsek_vol_by_pages(path, start, end, engine):
