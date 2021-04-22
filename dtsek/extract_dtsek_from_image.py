@@ -66,7 +66,9 @@ def get_symbol(response):
                     for symbol in word['symbols']:
                         char = symbol['text']
                         v = symbol['boundingBox']['vertices']
-                        box = [v[0]['x'], v[0]['y'], v[2]['x'], v[2]['y']]
+                        x1, y1 = v[0].get('x', 0), v[0].get('y', 0)
+                        x2, y2 = v[2].get('x', 0), v[2].get('y', 0)
+                        box = [x1, y1, x2, y2]
                         yield char, box
 
 def get_full_text_annotations(response):
