@@ -154,7 +154,10 @@ def get_double_tsek_idx(image_path, templates, deskew=False, show_boxes=False):
     matches = mtm(image, templates)
 
     # Get ocr boxes
-    response = get_ocr_output(image_path)
+    try:
+        response = get_ocr_output(image_path)
+    except FileNotFoundError:
+        return [], ""
     boxes, text = get_full_text_annotations(response)
     if not matches or not boxes: return [], text
     boxes = resize_boxes(boxes, old_size)
