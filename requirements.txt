@@ -1,3 +1,2 @@
 openpecha
-diff_match_patch
-PyYAML
+Multi-Template-Matching==1.5.2

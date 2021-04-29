@@ -4,6 +4,7 @@ from pathlib import Path
 class BaseConfig:
     def __init__(self):
         self.ocr_path = Path("../archive")
+        self.op_pechas_path = Path.home() / ".openpecha" / "pechas"
 
         # peydurma data path
         self.peydurma_path = Path("data/peydurma")
