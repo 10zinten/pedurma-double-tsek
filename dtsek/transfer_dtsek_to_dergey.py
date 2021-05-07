@@ -176,8 +176,11 @@ def post_process():
 
 # Cell
 def main():
+    print("[INFO] building pedurma vols ...")
     build_pedurma_vols()
+    print("[INFO] transfering dtesks to pedurma ...")
     transfer_dtseks_to_pedurma()
+    print("[INFO] post processing ...")
     post_process()
 
 # Cell
