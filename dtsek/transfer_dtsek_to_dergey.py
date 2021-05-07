@@ -27,7 +27,8 @@ def change_dtsek_to_dollar(text):
 
 def preprocess_ocr_output(text):
     text = remove_grouped_dtseks(text)
-    text = change_dtsek_to_dollar(text)
+    if config.name == "tengyur":
+        text = change_dtsek_to_dollar(text)
     return text
 
 # Cell
@@ -127,12 +128,12 @@ def transfer_dtsek(base_text, dest_text, verbose=False):
 
 # Cell
 def _run(fns):
-    pedurma_base_fn, ocr_dtsek_fn = fns
-    pedurma_dtsek_dir = ocr_dtsek_fn.parent.parent / "pedurma_dtseks"
-    pedurma_dtsek_fn = pedurma_dtsek_dir / pedurma_base_fn.name
-    print("Transfering ", pedurma_dtsek_fn.stem)
-    _, pedurma_dtsek = transfer_dtsek(pedurma_base_fn.read_text(), ocr_dtsek_fn.read_text())
-    pedurma_dtsek_fn.write_text(pedurma_dtsek)
+    for pedurma_base_fn, ocr_dtsek_fn in fns:
+        pedurma_dtsek_dir = ocr_dtsek_fn.parent.parent / "pedurma_dtseks"
+        pedurma_dtsek_fn = pedurma_dtsek_dir / pedurma_base_fn.name
+        print("Transfering ", pedurma_dtsek_fn.stem)
+        _, pedurma_dtsek = transfer_dtsek(pedurma_base_fn.read_text(), ocr_dtsek_fn.read_text())
+        pedurma_dtsek_fn.write_text(pedurma_dtsek)
 
 def transfer_dtseks_to_pedurma(replace=False):
     def _filter_completed(fns):
@@ -155,7 +156,7 @@ def transfer_dtseks_to_pedurma(replace=False):
     pedurma_dtsek_dir.mkdir(exist_ok=True, parents=True)
     fns = zip(pecha_base_fns, ocr_dtsek_fns)
     if not replace: fns = _filter_completed(fns)
-    parallel(_run, fns)
+    _run(fns)
 
 # Cell
 def post_process():
