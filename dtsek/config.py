@@ -15,7 +15,6 @@ class BaseConfig:
 
         # annotation
         self.double_tsek_sym = "$"
-        self.expected_double_tsek_sym = ":"
         self.tsek = "་"
         self.shed = "།"
 
@@ -32,7 +31,7 @@ class KangyurConfig(BaseConfig):
         self.name = "kangyur"
         self.work_id = "W1PD96682"
         self.d_pecha_id = "P000001"
-        self.p_pecha_id = "P000791"
+        self.p_pecha_id = "P000793"
         self.images_path = self.ocr_path / "images" / self.work_id
         self.ocr_output_path = self.ocr_path / " output" / self.work_id
         self.pedurma_output_path = self.output_path / self.name / "pedurma"
@@ -47,7 +46,7 @@ class TengyurConfig(BaseConfig):
         self.name = "tengyur"
         self.work_id = "W1PD95844"
         self.d_pecha_id = "P000002"
-        self.p_pecha_id = "P000792"
+        self.p_pecha_id = "P000791"
         self.images_path = self.ocr_path / "images" / self.work_id
         self.ocr_output_path = self.ocr_path / "output" / self.work_id
         self.pedurma_output_path = self.output_path / self.name / "pedurma"

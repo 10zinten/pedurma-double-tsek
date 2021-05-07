@@ -20,14 +20,19 @@ index = {"get_templates": "01_extract_dtsek_from_image.ipynb",
          "add_double_tsek": "01_extract_dtsek_from_image.ipynb",
          "extract_double_tsek_vol": "01_extract_dtsek_from_image.ipynb",
          "get_double_tsek_vol_by_pages": "01_extract_dtsek_from_image.ipynb",
-         "main": "01_extract_dtsek_from_image.ipynb",
-         "get_index_layer": "02_transerfer_dtsek_to_dergey.ipynb",
-         "get_base_text": "02_transerfer_dtsek_to_dergey.ipynb",
+         "main": "02_transerfer_dtsek_to_dergey.ipynb",
+         "dmp": "02_transerfer_dtsek_to_dergey.ipynb",
+         "remove_grouped_dtseks": "02_transerfer_dtsek_to_dergey.ipynb",
+         "change_dtsek_to_dollar": "02_transerfer_dtsek_to_dergey.ipynb",
+         "preprocess_ocr_output": "02_transerfer_dtsek_to_dergey.ipynb",
+         "build_pedurma_vols": "02_transerfer_dtsek_to_dergey.ipynb",
          "isNSM": "02_transerfer_dtsek_to_dergey.ipynb",
          "get_first_char_idx": "02_transerfer_dtsek_to_dergey.ipynb",
          "parse_double_tsek": "02_transerfer_dtsek_to_dergey.ipynb",
          "adjust_next_diff": "02_transerfer_dtsek_to_dergey.ipynb",
-         "transfer_anns_with_diff": "02_transerfer_dtsek_to_dergey.ipynb"}
+         "transfer_dtsek": "02_transerfer_dtsek_to_dergey.ipynb",
+         "transfer_dtseks_to_pedurma": "02_transerfer_dtsek_to_dergey.ipynb",
+         "post_process": "02_transerfer_dtsek_to_dergey.ipynb"}
 
 modules = ["extract_dtsek_from_image.py",
            "transfer_dtsek_to_dergey.py"]

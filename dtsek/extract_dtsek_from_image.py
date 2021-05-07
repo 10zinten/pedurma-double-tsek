@@ -238,11 +238,7 @@ def extract_double_tsek_vol(vol_id, image_group_path):
 
         idxs, text = get_double_tsek_idx(path, templates)
         dt_page_output = postprocess(add_double_tsek(text, idxs))
-        dt_page_output_fn.write_text(
-            dt_page_output.replace(
-                    config.double_tsek_sym, config.expected_double_tsek_sym
-                )
-            )
+        dt_page_output_fn.write_text(dt_page_output)
 
 # Cell
 def get_double_tsek_vol_by_pages(path, start, end, engine):
