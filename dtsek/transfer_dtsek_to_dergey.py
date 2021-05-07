@@ -149,7 +149,7 @@ def transfer_dtseks_to_pedurma(replace=False):
 
     "Returns pedurma base and ocr dobule tsek"
     pedurma_base_dir = config.op_pechas_path / config.p_pecha_id / f"{config.p_pecha_id}.opf" / "base"
-    pecha_base_fns = sorted([fn for fn in pedurma_base_dir.iterdir() if fn.stem == "v")
+    pecha_base_fns = sorted([fn for fn in pedurma_base_dir.iterdir() if config.name == "tengyur" and fn.stem == "v052"])
     ocr_dtsek_fns = sorted([fn for fn in config.pedurma_output_path.iterdir() if fn.is_file()])
 
     pedurma_dtsek_dir = config.pedurma_output_path.parent / "pedurma_dtseks"
