@@ -5,6 +5,18 @@ __all__ = ['dmp', 'remove_grouped_dtseks', 'change_dtsek_to_dollar', 'preprocess
            'transfer_dtseks_to_pedurma', 'post_process', 'main']
 
 # Cell
+import unicodedata
+import re
+import sys
+
+from antx.utils import optimized_diff_match_patch
+from tqdm.notebook import tqdm
+from config import TengyurConfig, KangyurConfig
+from fastcore.parallel import parallel
+
+from .config import TengyurConfig
+
+# Cell
 dmp = optimized_diff_match_patch()
 dmp.binary_path
 
