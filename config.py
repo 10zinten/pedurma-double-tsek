@@ -3,7 +3,7 @@ from pathlib import Path
 
 class BaseConfig:
     def __init__(self):
-        self.ocr_path = Path("../archive")
+        self.ocr_path = Path("../img2opf/archive")
         self.op_pechas_path = Path.home() / ".openpecha" / "pechas"
 
         # peydurma data path
@@ -33,7 +33,7 @@ class KangyurConfig(BaseConfig):
         self.d_pecha_id = "P000001"
         self.p_pecha_id = "P000793"
         self.images_path = self.ocr_path / "images" / self.work_id
-        self.ocr_output_path = self.ocr_path / " output" / self.work_id
+        self.ocr_output_path = self.ocr_path / "output" / self.work_id
         self.pedurma_output_path = self.output_path / self.name / "pedurma"
         self.dergey_output_path = self.output_path / self.name / "dergey"
         self.pedurma_output_path.mkdir(exist_ok=True, parents=True)

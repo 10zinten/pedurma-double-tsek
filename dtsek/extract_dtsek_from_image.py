@@ -156,7 +156,9 @@ def get_double_tsek_idx(image_path, templates, deskew=False, show_boxes=False):
     # Get ocr boxes
     try:
         response = get_ocr_output(image_path)
+        print(response)
     except FileNotFoundError:
+        print("fail to load ocr ouput for ", image_path)
         return [], ""
     boxes, text = get_full_text_annotations(response)
     if not matches or not boxes: return [], text
@@ -272,7 +274,7 @@ def main():
 
 # Cell
 if __name__ == "__main__":
-    if sys.argv == "k":
+    if len(sys.argv) > 1 and sys.argv[1] == "k":
         config = KangyurConfig()
     else:
         config = TengyurConfig()
