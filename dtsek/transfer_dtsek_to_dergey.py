@@ -32,7 +32,7 @@ def preprocess_ocr_output(text):
 
 # Cell
 def build_pedurma_vols(replace=False):
-    for vol_dir in tqdm(sorted(config.pedurma_output_path.iterdir())):
+    for vol_dir in sorted(config.pedurma_output_path.iterdir()):
         vol_fn = vol_dir.parent / f"{vol_dir.name}.txt"
         if vol_dir.is_file() or vol_dir.name == '.git': continue
         if vol_fn.is_file() and not replace: continue
