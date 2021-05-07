@@ -14,8 +14,6 @@ from tqdm.notebook import tqdm
 from config import TengyurConfig, KangyurConfig
 from fastcore.parallel import parallel
 
-from .config import TengyurConfig
-
 # Cell
 dmp = optimized_diff_match_patch()
 dmp.binary_path
