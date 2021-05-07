@@ -156,7 +156,6 @@ def get_double_tsek_idx(image_path, templates, deskew=False, show_boxes=False):
     # Get ocr boxes
     try:
         response = get_ocr_output(image_path)
-        print(response)
     except FileNotFoundError:
         print("fail to load ocr ouput for ", image_path)
         return [], ""
